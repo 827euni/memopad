@@ -111,7 +111,9 @@ namespace memopad
         private void textBox_TextChanged(object sender, EventArgs e)
         {
 
-            if(textBox.Text.Length == 0)
+            UpdateWord();
+
+            if (textBox.Text.Length == 0)
             {
                 실행취소ToolStripMenuItem.Enabled = false;
                 잘라내기ToolStripMenuItem.Enabled = false;
@@ -134,6 +136,8 @@ namespace memopad
                 이전찾기ToolStripMenuItem.Enabled = true;
                 바꾸기ToolStripMenuItem.Enabled = true;
             }
+
+           
         }
 
         private void 페이지설정ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -273,6 +277,17 @@ namespace memopad
         private void textBox_MouseMove(object sender, MouseEventArgs e)
         {
             UpdateLineCol();
+        }
+
+        private void UpdateWord()
+        {
+            int size = textBox.Text.Length;
+            toolStripStatusLabel2.Text = $"{size}자";
+        }
+
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }
