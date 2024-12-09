@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
@@ -153,6 +154,7 @@ namespace memopad
         private void 메모장_Load(object sender, EventArgs e)
         {
             this.모두선택ToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.A;
+            UpdateLineCol();
         }
 
         private void 실행취소ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -244,6 +246,33 @@ namespace memopad
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void 상태표시줄ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (상태표시줄ToolStripMenuItem.Checked == false)
+            {
+                상태표시줄ToolStripMenuItem.Checked = true;
+                statusStrip1.Visible = true;
+            }
+            else
+            {
+                상태표시줄ToolStripMenuItem.Checked = false;
+                statusStrip1.Visible = false;
+            }
+        }
+
+        private void UpdateLineCol()
+        {
+            int li = textBox.GetLineFromCharIndex(textBox.SelectionStart) + 1; // 0부터 반환하므로 위치는 +1 해야함.
+            int col = textBox.SelectionStart - textBox.GetFirstCharIndexOfCurrentLine() + 1; // 현재 위치에서 가장 처음 위치를 뺀 후 1을 더해야함.현재의 위치만 알게되면 맨 앞에 탭을 넣은 경우에도 열을 인정하게 됨)
+
+            toolStripStatusLabel1.Text = $"줄 {li}, 열 {col}";
+        }
+
+        private void textBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            UpdateLineCol();
         }
     }
 }

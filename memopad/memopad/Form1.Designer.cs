@@ -373,7 +373,7 @@
             this.상태표시줄ToolStripMenuItem,
             this.자동줄바꿈ToolStripMenuItem});
             this.보기ToolStripMenuItem.Name = "보기ToolStripMenuItem";
-            this.보기ToolStripMenuItem.Size = new System.Drawing.Size(102, 45);
+            this.보기ToolStripMenuItem.Size = new System.Drawing.Size(102, 48);
             this.보기ToolStripMenuItem.Text = "보기";
             // 
             // 확대축소ToolStripMenuItem
@@ -412,6 +412,7 @@
             this.상태표시줄ToolStripMenuItem.Name = "상태표시줄ToolStripMenuItem";
             this.상태표시줄ToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.상태표시줄ToolStripMenuItem.Text = "상태 표시줄";
+            this.상태표시줄ToolStripMenuItem.Click += new System.EventHandler(this.상태표시줄ToolStripMenuItem_Click);
             // 
             // 자동줄바꿈ToolStripMenuItem
             // 
@@ -576,11 +577,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox.ContextMenuStrip = this.contextMenuStrip1;
-            this.textBox.Location = new System.Drawing.Point(0, 52);
+            this.textBox.Location = new System.Drawing.Point(0, 407);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(1772, 1191);
+            this.textBox.Size = new System.Drawing.Size(1772, 836);
             this.textBox.TabIndex = 1;
             this.textBox.Text = "";
+            this.textBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBox_MouseMove);
             // 
             // statusStrip1
             // 
@@ -596,6 +598,7 @@
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.statusStrip1.Size = new System.Drawing.Size(1772, 58);
             this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.TabStop = true;
             this.statusStrip1.Text = "Windows (CRLF)";
             this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
@@ -610,27 +613,35 @@
             // 
             // toolStripStatusLabel2
             // 
+            this.toolStripStatusLabel2.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.toolStripStatusLabel2.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(108, 45);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(112, 45);
             this.toolStripStatusLabel2.Text = "글자수";
             // 
             // toolStripStatusLabel3
             // 
+            this.toolStripStatusLabel3.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabel3.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(78, 45);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(82, 45);
             this.toolStripStatusLabel3.Text = "배율";
             // 
             // toolStripStatusLabel4
             // 
+            this.toolStripStatusLabel4.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabel4.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
             this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(237, 45);
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(241, 45);
             this.toolStripStatusLabel4.Text = "Windows (CRLF)";
             // 
             // toolStripStatusLabel5
             // 
+            this.toolStripStatusLabel5.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabel5.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
             this.toolStripStatusLabel5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(99, 45);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(103, 45);
             this.toolStripStatusLabel5.Text = "UTF-8";
             // 
             // 메모장
