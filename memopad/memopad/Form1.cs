@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,8 @@ namespace memopad
         string currentURL;
         string msg;
         Stream st;
+        Font printFont;
+
 
         public 메모장()
         {
@@ -68,6 +71,29 @@ namespace memopad
                     streamWriter.Write(textBox.Text);
                 }
             }
+
+        }
+
+        private void 인쇄ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            PrintDocument printDocument = new PrintDocument();
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {             
+                printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
+
+                printDialog.Document = printDocument;
+                printDialog.Document.Print();
+
+            }
+
+        }
+
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs ev)
+        {
+            printFont = new Font("Arial", 10);
+            ev.Graphics.DrawString(textBox.Text, printFont, Brushes.Black, ev.MarginBounds);
 
         }
     }

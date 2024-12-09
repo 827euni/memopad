@@ -70,6 +70,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.textBox = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             this.보기ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1772, 52);
+            this.menuStrip1.Size = new System.Drawing.Size(1772, 49);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -165,6 +166,7 @@
             this.인쇄ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.인쇄ToolStripMenuItem.Size = new System.Drawing.Size(628, 54);
             this.인쇄ToolStripMenuItem.Text = "인쇄";
+            this.인쇄ToolStripMenuItem.Click += new System.EventHandler(this.인쇄ToolStripMenuItem_Click);
             // 
             // 탭닫기ToolStripMenuItem
             // 
@@ -209,7 +211,7 @@
             this.toolStripSeparator4,
             this.글꼴ToolStripMenuItem});
             this.편집ToolStripMenuItem.Name = "편집ToolStripMenuItem";
-            this.편집ToolStripMenuItem.Size = new System.Drawing.Size(102, 45);
+            this.편집ToolStripMenuItem.Size = new System.Drawing.Size(102, 48);
             this.편집ToolStripMenuItem.Text = "편집";
             // 
             // 실행취소ToolStripMenuItem
@@ -336,7 +338,7 @@
             this.상태표시줄ToolStripMenuItem,
             this.자동줄바꿈ToolStripMenuItem});
             this.보기ToolStripMenuItem.Name = "보기ToolStripMenuItem";
-            this.보기ToolStripMenuItem.Size = new System.Drawing.Size(102, 45);
+            this.보기ToolStripMenuItem.Size = new System.Drawing.Size(102, 48);
             this.보기ToolStripMenuItem.Text = "보기";
             // 
             // 확대축소ToolStripMenuItem
@@ -346,7 +348,7 @@
             this.축소ToolStripMenuItem,
             this.기본확대축소복원ToolStripMenuItem});
             this.확대축소ToolStripMenuItem.Name = "확대축소ToolStripMenuItem";
-            this.확대축소ToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.확대축소ToolStripMenuItem.Size = new System.Drawing.Size(356, 54);
             this.확대축소ToolStripMenuItem.Text = "확대/축소";
             // 
             // 확대ToolStripMenuItem
@@ -373,13 +375,13 @@
             // 상태표시줄ToolStripMenuItem
             // 
             this.상태표시줄ToolStripMenuItem.Name = "상태표시줄ToolStripMenuItem";
-            this.상태표시줄ToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.상태표시줄ToolStripMenuItem.Size = new System.Drawing.Size(356, 54);
             this.상태표시줄ToolStripMenuItem.Text = "상태 표시줄";
             // 
             // 자동줄바꿈ToolStripMenuItem
             // 
             this.자동줄바꿈ToolStripMenuItem.Name = "자동줄바꿈ToolStripMenuItem";
-            this.자동줄바꿈ToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.자동줄바꿈ToolStripMenuItem.Size = new System.Drawing.Size(356, 54);
             this.자동줄바꿈ToolStripMenuItem.Text = "자동 줄 바꿈";
             // 
             // saveFileDialog1
@@ -388,15 +390,19 @@
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(0, 216);
+            this.textBox.Location = new System.Drawing.Point(0, 569);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(1779, 1027);
+            this.textBox.Size = new System.Drawing.Size(1779, 674);
             this.textBox.TabIndex = 1;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
             // 
             // 메모장
             // 
@@ -459,6 +465,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }
 
