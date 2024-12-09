@@ -42,14 +42,19 @@ namespace memopad
             }
         }
 
-        private void textBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void 열기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((st = openFileDialog1.OpenFile()) != null)
+                {
+                    using (StreamReader streamReader = new StreamReader(st))
+                    {
+                        string msg = streamReader.ReadToEnd();
+                        textBox.Text = msg;
+                    }
+                }
+            }
         }
     }
 }

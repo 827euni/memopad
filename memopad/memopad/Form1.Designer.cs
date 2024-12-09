@@ -69,6 +69,7 @@
             this.자동줄바꿈ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.textBox = new System.Windows.Forms.TextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             this.보기ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1772, 52);
+            this.menuStrip1.Size = new System.Drawing.Size(1772, 49);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -363,6 +364,10 @@
             this.textBox.Size = new System.Drawing.Size(1779, 1191);
             this.textBox.TabIndex = 1;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // 메모장
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 30F);
@@ -424,6 +429,7 @@
         private System.Windows.Forms.ToolStripMenuItem 자동줄바꿈ToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.TextBox textBox;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
