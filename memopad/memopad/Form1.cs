@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace memopad
 {
-    public partial class Form1 : Form
+    public partial class 메모장 : Form
     {
-        public Form1()
+        public 메모장()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
