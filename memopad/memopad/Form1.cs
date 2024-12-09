@@ -152,7 +152,7 @@ namespace memopad
 
         private void 메모장_Load(object sender, EventArgs e)
         {
-
+            this.모두선택ToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.A;
         }
 
         private void 실행취소ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -227,7 +227,8 @@ namespace memopad
 
         private void 모두선택ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            textBox.SelectAll();
+            textBox.Focus();
+            textBox.SelectAll();      
         }
     }
 }
