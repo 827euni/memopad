@@ -96,5 +96,11 @@ namespace memopad
             ev.Graphics.DrawString(textBox.Text, printFont, Brushes.Black, ev.MarginBounds);
 
         }
+
+        private void 새창ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            메모장 newMemo = new 메모장();
+            newMemo.Show();
+        }
     }
 }

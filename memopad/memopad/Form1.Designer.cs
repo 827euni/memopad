@@ -84,7 +84,7 @@
             this.보기ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1772, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(1772, 52);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -120,6 +120,7 @@
             | System.Windows.Forms.Keys.N)));
             this.새창ToolStripMenuItem.Size = new System.Drawing.Size(628, 54);
             this.새창ToolStripMenuItem.Text = "새 창";
+            this.새창ToolStripMenuItem.Click += new System.EventHandler(this.새창ToolStripMenuItem_Click);
             // 
             // 열기ToolStripMenuItem
             // 
