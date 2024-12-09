@@ -156,12 +156,18 @@ namespace memopad
         }
 
         private void 실행취소ToolStripMenuItem_Click(object sender, EventArgs e)
-        { // 왜 인지 모르게 진행이 안 됌.
+        {
+            textBox.Focus();
+
             if (textBox.CanUndo)
             {
                 textBox.Undo();
             }
+
         }
+
+
+
 
         private void 잘라내기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -190,7 +196,12 @@ namespace memopad
 
         private void 실행취소ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            textBox.Focus();
 
+            if (textBox.CanUndo)
+            {
+                textBox.Undo();
+            }
         }
 
         private void 잘라내기ToolStripMenuItem1_Click(object sender, EventArgs e)
