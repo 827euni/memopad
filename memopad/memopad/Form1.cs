@@ -13,20 +13,15 @@ namespace memopad
 {
     public partial class 메모장 : Form
     {
+        string currentURL;
         string msg;
         Stream st;
 
         public 메모장()
         {
-
-
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
 
 
         private void 다른이름으로저장ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,8 +39,10 @@ namespace memopad
 
         private void 열기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                currentURL = openFileDialog1.FileName;
                 if ((st = openFileDialog1.OpenFile()) != null)
                 {
                     using (StreamReader streamReader = new StreamReader(st))
@@ -55,6 +52,23 @@ namespace memopad
                     }
                 }
             }
+        }
+
+
+        private void 저장ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(currentURL))
+            {
+                다른이름으로저장ToolStripMenuItem_Click(sender, e);
+            }
+            else
+            {
+                using (StreamWriter streamWriter = new StreamWriter(currentURL))
+                {
+                    streamWriter.Write(textBox.Text);
+                }
+            }
+
         }
     }
 }
