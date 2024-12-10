@@ -50,6 +50,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "바꾸기";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -142,6 +143,7 @@
             this.changeBox.Name = "changeBox";
             this.changeBox.Size = new System.Drawing.Size(1087, 99);
             this.changeBox.TabIndex = 14;
+            this.changeBox.TextChanged += new System.EventHandler(this.changeBox_TextChanged);
             // 
             // Form2
             // 

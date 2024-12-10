@@ -529,6 +529,18 @@ namespace memopad
             }
         }
 
+        public void changeWord(String searchWord, String changeWord) 
+        {
+            if (textBox.Find(searchWord) != -1)
+            {
+                textBox.SelectedText = changeWord;
+            }
+            else
+            {
+                MessageBox.Show($"'{searchWord}'을(를) 찾을 수 없습니다", "메모장");
+
+            }
+        }
     }
 
 }

@@ -123,5 +123,21 @@ namespace memopad
                 button3.Focus();
             }
         }
+
+        private void changeBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var mainForm = (메모장)this.Owner;
+            string searchWord = searchBox.Text;
+            string changeWord = changeBox.Text;
+
+            mainForm.searchNowWord(searchWord);
+            mainForm.changeWord(searchWord,changeWord);
+            mainForm.searchNextWord(searchWord);
+        }
     }
 }
