@@ -369,5 +369,25 @@ namespace memopad
                 textBox.ScrollBars = RichTextBoxScrollBars.Both;
             }
         }
+
+        private void bing으로검색ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 글꼴ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FontDialog fontDialog = new FontDialog();
+            if (fontDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBox.Font = fontDialog.Font;
+            }
+        }
+
+        private void 찾기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 findForm = new Form2();
+            findForm.Show(this);
+        }
     }
 }

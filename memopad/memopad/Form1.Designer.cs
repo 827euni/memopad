@@ -96,6 +96,7 @@
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -111,7 +112,7 @@
             this.편집ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1772, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(1772, 52);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -357,6 +358,7 @@
             this.bing으로검색ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.bing으로검색ToolStripMenuItem.Size = new System.Drawing.Size(477, 54);
             this.bing으로검색ToolStripMenuItem.Text = "Bing으로 검색";
+            this.bing으로검색ToolStripMenuItem.Click += new System.EventHandler(this.bing으로검색ToolStripMenuItem_Click);
             // 
             // 찾기ToolStripMenuItem
             // 
@@ -364,6 +366,7 @@
             this.찾기ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.찾기ToolStripMenuItem.Size = new System.Drawing.Size(477, 54);
             this.찾기ToolStripMenuItem.Text = "찾기";
+            this.찾기ToolStripMenuItem.Click += new System.EventHandler(this.찾기ToolStripMenuItem_Click);
             // 
             // 다음찾기ToolStripMenuItem
             // 
@@ -424,6 +427,7 @@
             this.글꼴ToolStripMenuItem.Name = "글꼴ToolStripMenuItem";
             this.글꼴ToolStripMenuItem.Size = new System.Drawing.Size(477, 54);
             this.글꼴ToolStripMenuItem.Text = "글꼴";
+            this.글꼴ToolStripMenuItem.Click += new System.EventHandler(this.글꼴ToolStripMenuItem_Click);
             // 
             // saveFileDialog1
             // 
@@ -741,6 +745,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 }
 
