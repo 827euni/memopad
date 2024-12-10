@@ -108,7 +108,7 @@
             this.보기ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2253, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(2253, 52);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -262,7 +262,7 @@
             this.toolStripSeparator4,
             this.글꼴ToolStripMenuItem});
             this.편집ToolStripMenuItem.Name = "편집ToolStripMenuItem";
-            this.편집ToolStripMenuItem.Size = new System.Drawing.Size(102, 45);
+            this.편집ToolStripMenuItem.Size = new System.Drawing.Size(102, 48);
             this.편집ToolStripMenuItem.Text = "편집";
             // 
             // 실행취소ToolStripMenuItem
@@ -359,6 +359,7 @@
             this.바꾸기ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.바꾸기ToolStripMenuItem.Size = new System.Drawing.Size(477, 54);
             this.바꾸기ToolStripMenuItem.Text = "바꾸기";
+            this.바꾸기ToolStripMenuItem.Click += new System.EventHandler(this.바꾸기ToolStripMenuItem_Click);
             // 
             // 이동ToolStripMenuItem
             // 

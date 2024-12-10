@@ -389,6 +389,15 @@ namespace memopad
         {
             Form2 findForm = new Form2();
             findForm.Show(this);
+            findForm.setFind();
+        }
+
+        private void 바꾸기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 findForm = new Form2();
+            findForm.Show(this);
+            findForm.setChange();
+
         }
 
         private void 이동ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -423,5 +432,6 @@ namespace memopad
         {
 
         }
+
     }
 }
