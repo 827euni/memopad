@@ -20,11 +20,24 @@ namespace memopad
         string msg;
         Stream st;
         Font printFont;
-
+        int zoomLevel = 10;
 
         public 메모장()
         {
             InitializeComponent();
+            textBox.MouseWheel += new MouseEventHandler(textBox_MouseWheel);
+        }
+
+        private void textBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0)
+            { 
+                zoomIn(); 
+            }
+            else 
+            {
+                zoomOut(); 
+            }
         }
 
         private void 다른이름으로저장ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -285,9 +298,54 @@ namespace memopad
             toolStripStatusLabel2.Text = $"{size}자";
         }
 
-        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void zoomIn()
         {
+            if (zoomLevel < 60)
+            {
+                zoomLevel++;
+                textBox.ZoomFactor = zoomLevel * 0.1f; // 소수점 단위로 보는 것이 조금 더 명확함.
+                Console.WriteLine($"ZoomFactors: {textBox.ZoomFactor}");
+                updateZoom();
+            }
+        }
 
+        private void zoomOut()
+        {
+            if (zoomLevel > 1)
+            {
+                zoomLevel--;
+                textBox.ZoomFactor = zoomLevel * 0.1f;
+                Console.WriteLine($"ZoomFactors:v{textBox.ZoomFactor}");
+                updateZoom();
+            }
+        }
+
+        private void updateZoom()
+        {
+            toolStripStatusLabel3.Text = $"{Convert.ToString(zoomLevel * 10)}%";
+        }
+
+        private void 모두선택ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox.Focus();
+            textBox.SelectAll();
+        }
+
+        private void 확대ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            zoomIn();
+        }
+
+        private void 축소ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            zoomOut();
+        }
+
+        private void 기본확대축소복원ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            zoomLevel = 10;
+            textBox.ZoomFactor = 1;
+            updateZoom();
         }
     }
 }
