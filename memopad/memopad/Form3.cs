@@ -43,6 +43,11 @@ namespace memopad
                 mainForm.lineCursor(lineN);
                 this.Close();
             }
+
+            else
+            {
+                MessageBox.Show("숫자를 입력해주세요.");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
