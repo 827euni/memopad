@@ -98,6 +98,7 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "↓";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -137,6 +138,7 @@
             this.button8.TabIndex = 10;
             this.button8.Text = "↑";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // menuStrip2
             // 
@@ -144,7 +146,7 @@
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1922, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(4805, 150);
             this.menuStrip2.TabIndex = 12;
             this.menuStrip2.Text = "menuStrip2";
             // 

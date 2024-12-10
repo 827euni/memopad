@@ -53,8 +53,10 @@ namespace memopad
             saveFileDialog1.Filter = "텍스트(*.txt)|*.txt";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                if ((st = saveFileDialog1.OpenFile()) != null) {
-                    using (StreamWriter streamWriter = new StreamWriter(st)) {
+                if ((st = saveFileDialog1.OpenFile()) != null)
+                {
+                    using (StreamWriter streamWriter = new StreamWriter(st))
+                    {
                         streamWriter.Write(textBox.Text);
                     }
                 }
@@ -101,7 +103,7 @@ namespace memopad
             PrintDocument printDocument = new PrintDocument();
 
             if (printDialog.ShowDialog() == DialogResult.OK)
-            {             
+            {
                 printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
 
                 printDialog.Document = printDocument;
@@ -201,8 +203,9 @@ namespace memopad
 
         private void 잘라내기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (textBox.SelectedText != "") {
-                textBox.Cut(); 
+            if (textBox.SelectedText != "")
+            {
+                textBox.Cut();
             }
         }
 
@@ -261,7 +264,7 @@ namespace memopad
         private void 모두선택ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             textBox.Focus();
-            textBox.SelectAll();      
+            textBox.SelectAll();
         }
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
@@ -458,7 +461,7 @@ namespace memopad
             {
                 MessageBox.Show("줄 번호가 전체 줄 수를 넘습니다.", "메모장 - 줄로 이동");
             }
-           
+
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -466,11 +469,27 @@ namespace memopad
 
         }
 
-        public void searchWord(string searchWord)
+        public void searchNowWord(string searchWord)
         {
 
+            int selectIndex = textBox.Find(searchWord);
 
-                int selectIndex = textBox.Find(searchWord);
+            if (selectIndex != -1)
+            {
+                textBox.SelectionStart = selectIndex;
+                textBox.SelectionLength = searchWord.Length;
+                textBox.Focus();
+            }
+
+
+            index = selectIndex + searchWord.Length;
+        }
+
+        public void searchNextWord(string searchWord)
+        {
+            try
+            {
+                int selectIndex = textBox.Find(searchWord, index + 1, textBox.Text.Length, RichTextBoxFinds.None); // 인덱스와 동일한 것을 굳이 계산 할 필요 없음
 
                 if (selectIndex != -1)
                 {
@@ -480,9 +499,38 @@ namespace memopad
                 }
 
 
-            index = selectIndex + searchWord.Length;
+
+                index = selectIndex + searchWord.Length;
+            }
+
+            catch
+            {
+                searchNowWord(searchWord);
+            }
+        }
+
+        public void searchPreviewWord(String searchWord)
+        {
+
+            int selectIndex = textBox.Find(searchWord, 0, index - 1, RichTextBoxFinds.Reverse); // 굳이 인덱스와 동일한 것인 지금 있는 곳까지 계산을 할 필요가 없음
+
+            if (selectIndex != -1)
+            {
+                textBox.SelectionStart = selectIndex;
+                textBox.SelectionLength = searchWord.Length;
+                textBox.Focus();
+                index = selectIndex;
+            }
+
+
+            else
+            {
+                searchNowWord(searchWord);
+                MessageBox.Show("더 이상 이전 단어를 검색할 수 없습니다.");
             }
         }
 
     }
+
+}
 

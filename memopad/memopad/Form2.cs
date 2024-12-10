@@ -24,9 +24,9 @@ namespace memopad
 
         private void button5_Click(object sender, EventArgs e)
         {
-        
 
-            if (isVisible) 
+
+            if (isVisible)
             {
                 setFind();
             }
@@ -42,7 +42,7 @@ namespace memopad
             var mainForm = (메모장)this.Owner;
             string textSearch = searchBox.Text;
 
-            mainForm.searchWord(textSearch);
+            mainForm.searchNowWord(textSearch);
 
         }
 
@@ -54,7 +54,7 @@ namespace memopad
                 Text = "대/소문자 구분"
             };
             //menuItem.Click
-            
+
             ToolStripMenuItem menuItem2 = new ToolStripMenuItem()
             {
                 Text = "줄 바꿈"
@@ -97,6 +97,22 @@ namespace memopad
 
             this.Size = new Size(780, 100);
             isVisible = false;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var mainForm = (메모장)this.Owner;
+            string textSearch = searchBox.Text;
+
+            mainForm.searchNextWord(textSearch);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            var mainForm = (메모장)this.Owner;
+            string textSearch = searchBox.Text;
+
+            mainForm.searchPreviewWord(textSearch);
         }
     }
 }
