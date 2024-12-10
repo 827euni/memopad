@@ -32,13 +32,16 @@ namespace memopad
 
         private void textBox_MouseWheel(object sender, MouseEventArgs e)
         {
-            if (e.Delta > 0) // 한 번 휠이 돌 때마다 +120~-120까지 이동
-            { 
-                zoomIn(); 
-            }
-            else 
+            if (Control.ModifierKeys == Keys.Control) // 컨트롤 누른 채로 마우스 휠 이동
             {
-                zoomOut(); 
+                if (e.Delta > 0) // 한 번 휠이 돌 때마다 +120~-120까지 이동
+                {
+                    zoomIn();
+                }
+                else
+                {
+                    zoomOut();
+                }
             }
         }
 
@@ -120,7 +123,7 @@ namespace memopad
 
         private void 시간날짜ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            textBox.Text = textBox.Text.Insert(textBox.SelectionStart, DateTime.Now.ToString());
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
@@ -310,7 +313,6 @@ namespace memopad
             {
                 zoomLevel++;
                 textBox.ZoomFactor = zoomLevel * 0.1f; // 소수점 단위로 보는 것이 조금 더 명확함.
-                Console.WriteLine($"ZoomFactors: +{textBox.ZoomFactor}");
                 updateZoom();
             }
         }
@@ -321,7 +323,6 @@ namespace memopad
             {
                 zoomLevel--;
                 textBox.ZoomFactor = zoomLevel * 0.1f;
-                Console.WriteLine($"ZoomFactors:-{textBox.ZoomFactor}");
                 updateZoom();
             }
         }
@@ -368,6 +369,59 @@ namespace memopad
                 textBox.WordWrap = false;
                 textBox.ScrollBars = RichTextBoxScrollBars.Both;
             }
+        }
+
+        private void bing으로검색ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 글꼴ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FontDialog fontDialog = new FontDialog();
+            if (fontDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBox.Font = fontDialog.Font;
+            }
+        }
+
+        private void 찾기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 findForm = new Form2();
+            findForm.Show(this);
+        }
+
+        private void 이동ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 moveLine = new Form3(this);
+            moveLine.Show(this);
+        }
+
+        private void 창닫기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void lineCursor(int lineN)
+        {
+            if (lineN > 0 && lineN <= textBox.Lines.Length)
+            {
+                int position = textBox.GetFirstCharIndexFromLine(lineN - 1); // 사람이 생각하는 줄 수 는 1부터 시작하는데 컴퓨터는 0부터 시작한다고 생각하기 때문
+                if (position >= 0)
+                {
+                    textBox.SelectionStart = position;
+                }
+            }
+            else
+            {
+                MessageBox.Show("줄 번호가 전체 줄 수를 넘습니다.", "메모장 - 줄로 이동");
+            }
+           
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
