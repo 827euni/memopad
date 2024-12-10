@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
@@ -19,11 +20,26 @@ namespace memopad
         string msg;
         Stream st;
         Font printFont;
-
+        int zoomLevel = 10;
 
         public 메모장()
         {
             InitializeComponent();
+            textBox.MouseWheel += new MouseEventHandler(textBox_MouseWheel);
+            상태표시줄ToolStripMenuItem.Checked = true;
+            자동줄바꿈ToolStripMenuItem.Checked = true;
+        }
+
+        private void textBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0) // 한 번 휠이 돌 때마다 +120~-120까지 이동
+            { 
+                zoomIn(); 
+            }
+            else 
+            {
+                zoomOut(); 
+            }
         }
 
         private void 다른이름으로저장ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,7 +126,9 @@ namespace memopad
         private void textBox_TextChanged(object sender, EventArgs e)
         {
 
-            if(textBox.Text.Length == 0)
+            UpdateWord();
+
+            if (textBox.Text.Length == 0)
             {
                 실행취소ToolStripMenuItem.Enabled = false;
                 잘라내기ToolStripMenuItem.Enabled = false;
@@ -120,6 +138,8 @@ namespace memopad
                 다음찾기ToolStripMenuItem.Enabled = false;
                 이전찾기ToolStripMenuItem.Enabled = false;
                 바꾸기ToolStripMenuItem.Enabled = false;
+
+                
             }
 
             else
@@ -132,7 +152,10 @@ namespace memopad
                 다음찾기ToolStripMenuItem.Enabled = true;
                 이전찾기ToolStripMenuItem.Enabled = true;
                 바꾸기ToolStripMenuItem.Enabled = true;
+                
             }
+
+
         }
 
         private void 페이지설정ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -153,6 +176,7 @@ namespace memopad
         private void 메모장_Load(object sender, EventArgs e)
         {
             this.모두선택ToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.A;
+            UpdateLineCol();
         }
 
         private void 실행취소ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -229,6 +253,121 @@ namespace memopad
         {
             textBox.Focus();
             textBox.SelectAll();      
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void 상태표시줄ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (상태표시줄ToolStripMenuItem.Checked == false)
+            {
+                상태표시줄ToolStripMenuItem.Checked = true;
+                statusStrip1.Visible = true;
+            }
+            else
+            {
+                상태표시줄ToolStripMenuItem.Checked = false;
+                statusStrip1.Visible = false;
+            }
+        }
+
+        private void UpdateLineCol()
+        {
+            int li = textBox.GetLineFromCharIndex(textBox.SelectionStart) + 1; // 0부터 반환하므로 위치는 +1 해야함.
+            int col = textBox.SelectionStart - textBox.GetFirstCharIndexOfCurrentLine() + 1; // 현재 위치에서 가장 처음 위치를 뺀 후 1을 더해야함.
+                                                                                             // 현재의 위치만 알게되면 맨 앞에 탭을 넣은 경우에도 열을 인정하게 됨)
+
+            toolStripStatusLabel1.Text = $"줄 {li}, 열 {col}";
+        }
+
+        private void textBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            UpdateLineCol();
+        }
+
+        private void UpdateWord()
+        {
+            int size = textBox.Text.Length;
+            toolStripStatusLabel2.Text = $"{size}자";
+        }
+
+        private void zoomIn()
+        {
+            if (zoomLevel < 60)
+            {
+                zoomLevel++;
+                textBox.ZoomFactor = zoomLevel * 0.1f; // 소수점 단위로 보는 것이 조금 더 명확함.
+                Console.WriteLine($"ZoomFactors: +{textBox.ZoomFactor}");
+                updateZoom();
+            }
+        }
+
+        private void zoomOut()
+        {
+            if (zoomLevel > 1)
+            {
+                zoomLevel--;
+                textBox.ZoomFactor = zoomLevel * 0.1f;
+                Console.WriteLine($"ZoomFactors:-{textBox.ZoomFactor}");
+                updateZoom();
+            }
+        }
+
+        private void updateZoom()
+        {
+            toolStripStatusLabel3.Text = $"{Convert.ToString(zoomLevel * 10)}%";
+        }
+
+        private void 모두선택ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox.Focus();
+            textBox.SelectAll();
+        }
+
+        private void 확대ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            zoomIn();
+        }
+
+        private void 축소ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            zoomOut();
+        }
+
+        private void 기본확대축소복원ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            zoomLevel = 10;
+            textBox.ZoomFactor = 1;
+            updateZoom();
+        }
+
+        private void 자동줄바꿈ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (자동줄바꿈ToolStripMenuItem.Checked == false)
+            {
+                자동줄바꿈ToolStripMenuItem.Checked = true;
+                textBox.WordWrap = true;
+                textBox.ScrollBars = RichTextBoxScrollBars.Vertical;
+            }
+            else
+            {
+                자동줄바꿈ToolStripMenuItem.Checked = false;
+                textBox.WordWrap = false;
+                textBox.ScrollBars = RichTextBoxScrollBars.Both;
+            }
         }
     }
 }
