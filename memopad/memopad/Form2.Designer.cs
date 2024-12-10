@@ -60,6 +60,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "모두 바꾸기";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 

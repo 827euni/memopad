@@ -541,6 +541,17 @@ namespace memopad
 
             }
         }
+
+        public void changeAllWords(String searchWord, String changeWord)
+        {
+            while (textBox.Find(searchWord) != -1)
+            {
+                int selectIndex = textBox.Find(searchWord);
+                textBox.SelectionStart = selectIndex;
+                textBox.SelectionLength = searchWord.Length;
+                textBox.SelectedText = changeWord;
+            }
+        }
     }
 
 }

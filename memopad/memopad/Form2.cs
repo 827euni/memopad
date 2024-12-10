@@ -139,5 +139,14 @@ namespace memopad
             mainForm.changeWord(searchWord,changeWord);
             mainForm.searchNextWord(searchWord);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var mainForm = (메모장)this.Owner;
+            string searchWord = searchBox.Text;
+            string changeWord = changeBox.Text;
+
+            mainForm.changeAllWords(searchWord,changeWord);
+        }
     }
 }
