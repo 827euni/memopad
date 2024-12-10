@@ -127,6 +127,7 @@
             this.button7.TabIndex = 9;
             this.button7.Text = "X";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -143,7 +144,7 @@
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1942, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(1922, 24);
             this.menuStrip2.TabIndex = 12;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -157,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1942, 302);
+            this.ClientSize = new System.Drawing.Size(1922, 287);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -171,6 +172,7 @@
             this.Controls.Add(this.menuStrip2);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
