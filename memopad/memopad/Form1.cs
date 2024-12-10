@@ -32,13 +32,16 @@ namespace memopad
 
         private void textBox_MouseWheel(object sender, MouseEventArgs e)
         {
-            if (e.Delta > 0) // 한 번 휠이 돌 때마다 +120~-120까지 이동
-            { 
-                zoomIn(); 
-            }
-            else 
+            if (Control.ModifierKeys == Keys.Control) // 컨트롤 누른 채로 마우스 휠 이동
             {
-                zoomOut(); 
+                if (e.Delta > 0) // 한 번 휠이 돌 때마다 +120~-120까지 이동
+                {
+                    zoomIn();
+                }
+                else
+                {
+                    zoomOut();
+                }
             }
         }
 
@@ -310,7 +313,6 @@ namespace memopad
             {
                 zoomLevel++;
                 textBox.ZoomFactor = zoomLevel * 0.1f; // 소수점 단위로 보는 것이 조금 더 명확함.
-                Console.WriteLine($"ZoomFactors: +{textBox.ZoomFactor}");
                 updateZoom();
             }
         }
@@ -321,7 +323,6 @@ namespace memopad
             {
                 zoomLevel--;
                 textBox.ZoomFactor = zoomLevel * 0.1f;
-                Console.WriteLine($"ZoomFactors:-{textBox.ZoomFactor}");
                 updateZoom();
             }
         }
@@ -403,7 +404,6 @@ namespace memopad
 
         public void lineCursor(int lineN)
         {
-            Console.WriteLine(textBox.Lines.Length);
             if (lineN > 0 && lineN <= textBox.Lines.Length)
             {
                 int position = textBox.GetFirstCharIndexFromLine(lineN - 1); // 사람이 생각하는 줄 수 는 1부터 시작하는데 컴퓨터는 0부터 시작한다고 생각하기 때문
