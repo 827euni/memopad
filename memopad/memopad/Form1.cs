@@ -526,7 +526,6 @@ namespace memopad
             else
             {
                 searchNowWord(searchWord);
-                MessageBox.Show("더 이상 이전 단어를 검색할 수 없습니다.");
             }
         }
 

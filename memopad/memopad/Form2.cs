@@ -114,5 +114,14 @@ namespace memopad
 
             mainForm.searchPreviewWord(textSearch);
         }
+
+        private void searchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = false;
+                button3.Focus();
+            }
+        }
     }
 }

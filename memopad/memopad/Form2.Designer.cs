@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.searchBox = new System.Windows.Forms.RichTextBox();
-            this.changeBox = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -39,28 +37,10 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.changeBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // searchBox
-            // 
-            this.searchBox.Font = new System.Drawing.Font("돋움", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.searchBox.Location = new System.Drawing.Point(149, 27);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(1218, 96);
-            this.searchBox.TabIndex = 0;
-            this.searchBox.Text = "";
-            this.searchBox.TextChanged += new System.EventHandler(this.search_TextChanged);
-            // 
-            // changeBox
-            // 
-            this.changeBox.Font = new System.Drawing.Font("돋움", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.changeBox.Location = new System.Drawing.Point(149, 159);
-            this.changeBox.Name = "changeBox";
-            this.changeBox.Size = new System.Drawing.Size(1093, 96);
-            this.changeBox.TabIndex = 1;
-            this.changeBox.Text = "";
             // 
             // button2
             // 
@@ -82,7 +62,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1239, 37);
+            this.button3.Location = new System.Drawing.Point(1239, 41);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(114, 76);
             this.button3.TabIndex = 5;
@@ -104,7 +84,7 @@
             // 
             this.button5.Location = new System.Drawing.Point(21, 27);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(114, 76);
+            this.button5.Size = new System.Drawing.Size(114, 99);
             this.button5.TabIndex = 7;
             this.button5.Text = "◈";
             this.button5.UseVisualStyleBackColor = true;
@@ -140,38 +120,44 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // menuStrip2
-            // 
-            this.menuStrip2.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(4805, 150);
-            this.menuStrip2.TabIndex = 12;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // searchBox
+            // 
+            this.searchBox.Font = new System.Drawing.Font("돋움", 24F);
+            this.searchBox.Location = new System.Drawing.Point(149, 27);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(1214, 99);
+            this.searchBox.TabIndex = 13;
+            // 
+            // changeBox
+            // 
+            this.changeBox.Font = new System.Drawing.Font("돋움", 24F);
+            this.changeBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.changeBox.Location = new System.Drawing.Point(149, 156);
+            this.changeBox.Name = "changeBox";
+            this.changeBox.Size = new System.Drawing.Size(1087, 99);
+            this.changeBox.TabIndex = 14;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1922, 287);
+            this.Controls.Add(this.changeBox);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.searchBox);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.changeBox);
-            this.Controls.Add(this.searchBox);
-            this.Controls.Add(this.menuStrip2);
             this.Name = "Form2";
             this.Text = "Form2";
             this.ResumeLayout(false);
@@ -180,9 +166,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox searchBox;
-        private System.Windows.Forms.RichTextBox changeBox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
@@ -191,7 +174,8 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.TextBox changeBox;
     }
 }
