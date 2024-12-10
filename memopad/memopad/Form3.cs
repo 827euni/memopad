@@ -35,9 +35,14 @@ namespace memopad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int lineN = Convert.ToInt32(numBox.Text);
+            int lineN;
 
-
+            if (int.TryParse(numBox.Text, out lineN))
+            {
+                var mainForm = (메모장)this.Owner;
+                mainForm.lineCursor(lineN);
+                this.Close();
+            }
         }
     }
 }

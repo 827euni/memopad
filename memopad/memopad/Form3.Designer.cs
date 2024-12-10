@@ -39,7 +39,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("돋움", 18F);
-            this.label1.Location = new System.Drawing.Point(114, 63);
+            this.label1.Location = new System.Drawing.Point(111, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(285, 60);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("돋움", 13F);
-            this.label2.Location = new System.Drawing.Point(127, 176);
+            this.label2.Location = new System.Drawing.Point(124, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 44);
             this.label2.TabIndex = 1;
@@ -59,7 +59,7 @@
             // numBox
             // 
             this.numBox.Font = new System.Drawing.Font("돋움", 12F);
-            this.numBox.Location = new System.Drawing.Point(124, 235);
+            this.numBox.Location = new System.Drawing.Point(121, 224);
             this.numBox.Name = "numBox";
             this.numBox.Size = new System.Drawing.Size(566, 53);
             this.numBox.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.RoyalBlue;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(124, 304);
+            this.button1.Location = new System.Drawing.Point(121, 293);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(264, 100);
             this.button1.TabIndex = 3;
@@ -79,7 +79,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(415, 304);
+            this.button2.Location = new System.Drawing.Point(412, 293);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(275, 100);
             this.button2.TabIndex = 4;

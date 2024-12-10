@@ -400,5 +400,23 @@ namespace memopad
         {
 
         }
+
+        public void lineCursor(int lineN)
+        {
+            Console.WriteLine(textBox.Lines.Length);
+            if (lineN > 0 && lineN <= textBox.Lines.Length)
+            {
+                int position = textBox.GetFirstCharIndexFromLine(lineN - 1); // 사람이 생각하는 줄 수 는 1부터 시작하는데 컴퓨터는 0부터 시작한다고 생각하기 때문
+                if (position >= 0)
+                {
+                    textBox.SelectionStart = position;
+                }
+            }
+            else
+            {
+                MessageBox.Show("줄 번호가 전체 줄 수를 넘습니다.", "메모장 - 줄로 이동");
+            }
+           
+        }
     }
 }

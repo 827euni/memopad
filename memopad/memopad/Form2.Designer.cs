@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.search = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.searchBox = new System.Windows.Forms.RichTextBox();
+            this.changeBox = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -43,23 +43,24 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
-            // search
+            // searchBox
             // 
-            this.search.Font = new System.Drawing.Font("돋움", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.search.Location = new System.Drawing.Point(149, 27);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(1218, 96);
-            this.search.TabIndex = 0;
-            this.search.Text = "";
+            this.searchBox.Font = new System.Drawing.Font("돋움", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.searchBox.Location = new System.Drawing.Point(149, 27);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(1218, 96);
+            this.searchBox.TabIndex = 0;
+            this.searchBox.Text = "";
+            this.searchBox.TextChanged += new System.EventHandler(this.search_TextChanged);
             // 
-            // richTextBox1
+            // changeBox
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("돋움", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTextBox1.Location = new System.Drawing.Point(149, 159);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1093, 96);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.changeBox.Font = new System.Drawing.Font("돋움", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.changeBox.Location = new System.Drawing.Point(149, 159);
+            this.changeBox.Name = "changeBox";
+            this.changeBox.Size = new System.Drawing.Size(1093, 96);
+            this.changeBox.TabIndex = 1;
+            this.changeBox.Text = "";
             // 
             // button2
             // 
@@ -165,8 +166,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.search);
+            this.Controls.Add(this.changeBox);
+            this.Controls.Add(this.searchBox);
             this.Controls.Add(this.menuStrip2);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -177,8 +178,8 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox search;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox searchBox;
+        private System.Windows.Forms.RichTextBox changeBox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;

@@ -27,14 +27,13 @@ namespace memopad
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string textSearch = search.Text;
+            string textSearch = searchBox.Text;
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e) // 버튼을 누르면 메뉴가 나오게 하는 기능 구현
         {
             ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
-
             ToolStripMenuItem menuItem = new ToolStripMenuItem()
             {
                 Text = "대/소문자 구분"
@@ -52,6 +51,11 @@ namespace memopad
             Point point = button6.PointToScreen(Point.Empty);
             point.Y += button6.Height;
             contextMenuStrip.Show(point);
+        }
+
+        private void search_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
