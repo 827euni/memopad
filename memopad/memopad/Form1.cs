@@ -395,5 +395,10 @@ namespace memopad
             Form3 moveLine = new Form3(this);
             moveLine.Show(this);
         }
+
+        private void 창닫기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

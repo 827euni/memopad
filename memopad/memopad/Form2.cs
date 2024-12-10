@@ -30,5 +30,28 @@ namespace memopad
             string textSearch = search.Text;
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
+
+            ToolStripMenuItem menuItem = new ToolStripMenuItem()
+            {
+                Text = "대/소문자 구분"
+            };
+            //menuItem.Click
+            
+            ToolStripMenuItem menuItem2 = new ToolStripMenuItem()
+            {
+                Text = "줄 바꿈"
+            };
+
+            contextMenuStrip.Items.Add(menuItem);
+            contextMenuStrip.Items.Add(menuItem2);
+
+            Point point = button6.PointToScreen(Point.Empty);
+            point.Y += button6.Height;
+            contextMenuStrip.Show(point);
+        }
     }
 }

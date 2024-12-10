@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.search = new System.Windows.Forms.RichTextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -39,12 +40,13 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // search
             // 
             this.search.Font = new System.Drawing.Font("돋움", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.search.Location = new System.Drawing.Point(152, 396);
+            this.search.Location = new System.Drawing.Point(149, 27);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(1218, 96);
             this.search.TabIndex = 0;
@@ -53,7 +55,7 @@
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("돋움", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.richTextBox1.Location = new System.Drawing.Point(152, 528);
+            this.richTextBox1.Location = new System.Drawing.Point(149, 159);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(1093, 96);
             this.richTextBox1.TabIndex = 1;
@@ -61,7 +63,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1263, 528);
+            this.button2.Location = new System.Drawing.Point(1260, 159);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(304, 96);
             this.button2.TabIndex = 3;
@@ -70,7 +72,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1584, 528);
+            this.button1.Location = new System.Drawing.Point(1581, 159);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(304, 96);
             this.button1.TabIndex = 4;
@@ -79,7 +81,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1242, 406);
+            this.button3.Location = new System.Drawing.Point(1239, 37);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(114, 76);
             this.button3.TabIndex = 5;
@@ -89,7 +91,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1388, 406);
+            this.button4.Location = new System.Drawing.Point(1385, 37);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(114, 76);
             this.button4.TabIndex = 6;
@@ -98,7 +100,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(24, 396);
+            this.button5.Location = new System.Drawing.Point(21, 27);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(114, 76);
             this.button5.TabIndex = 7;
@@ -108,16 +110,17 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(1654, 406);
+            this.button6.Location = new System.Drawing.Point(1651, 37);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(114, 76);
             this.button6.TabIndex = 8;
             this.button6.Text = "메뉴";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(1774, 406);
+            this.button7.Location = new System.Drawing.Point(1771, 37);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(114, 76);
             this.button7.TabIndex = 9;
@@ -126,7 +129,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(1517, 406);
+            this.button8.Location = new System.Drawing.Point(1514, 37);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(114, 76);
             this.button8.TabIndex = 10;
@@ -143,11 +146,17 @@
             this.menuStrip2.TabIndex = 12;
             this.menuStrip2.Text = "menuStrip2";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1942, 971);
+            this.ClientSize = new System.Drawing.Size(1942, 302);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -179,5 +188,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
