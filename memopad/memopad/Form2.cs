@@ -42,7 +42,7 @@ namespace memopad
 
         }
 
-        private void button6_Click(object sender, EventArgs e) // 버튼을 누르면 메뉴가 나오게 하는 기능 구현
+        private void button6_Click(object sender, EventArgs e) // 버튼을 누르면 메뉴 바로 아래에 나오게 하는 기능 구현
         {
             ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
             ToolStripMenuItem menuItem = new ToolStripMenuItem()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
@@ -141,8 +142,12 @@ namespace memopad
                 다음찾기ToolStripMenuItem.Enabled = false;
                 이전찾기ToolStripMenuItem.Enabled = false;
                 바꾸기ToolStripMenuItem.Enabled = false;
+                잘라내기ToolStripMenuItem1.Enabled = false;
+                복사ToolStripMenuItem1.Enabled = false;
+                삭제ToolStripMenuItem1.Enabled = false;
+                bing으로서치ToolStripMenuItem.Enabled = false;
 
-                
+
             }
 
             else
@@ -155,7 +160,11 @@ namespace memopad
                 다음찾기ToolStripMenuItem.Enabled = true;
                 이전찾기ToolStripMenuItem.Enabled = true;
                 바꾸기ToolStripMenuItem.Enabled = true;
-                
+                잘라내기ToolStripMenuItem1.Enabled = true;
+                복사ToolStripMenuItem1.Enabled = true;
+                삭제ToolStripMenuItem1.Enabled = true;
+                bing으로서치ToolStripMenuItem.Enabled = true;
+
             }
 
 
@@ -167,11 +176,6 @@ namespace memopad
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void 표시및유니코드ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -373,7 +377,34 @@ namespace memopad
 
         private void bing으로검색ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string search = textBox.SelectedText;
 
+            if (textBox.SelectedText != null)
+            {
+                string url = "https://www.bing.com/search?q=" + Uri.EscapeDataString(search);
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+            }
+
+            else
+            {
+                bing으로검색ToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        private void bing으로서치ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string search = textBox.SelectedText;
+
+            if (textBox.SelectedText != null)
+            {
+                string url = "https://www.bing.com/search?q=" + Uri.EscapeDataString(search);
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+            }
+
+            else
+            {
+                bing으로서치ToolStripMenuItem.Enabled = false;
+            }
         }
 
         private void 글꼴ToolStripMenuItem_Click(object sender, EventArgs e)
