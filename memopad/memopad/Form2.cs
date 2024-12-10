@@ -38,7 +38,11 @@ namespace memopad
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+            var mainForm = (메모장)this.Owner;
             string textSearch = searchBox.Text;
+
+            mainForm.searchWord(textSearch);
 
         }
 

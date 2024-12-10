@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace memopad
@@ -22,6 +23,7 @@ namespace memopad
         Stream st;
         Font printFont;
         int zoomLevel = 10;
+        int index = 0;
 
         public 메모장()
         {
@@ -464,5 +466,23 @@ namespace memopad
 
         }
 
+        public void searchWord(string searchWord)
+        {
+
+
+                int selectIndex = textBox.Find(searchWord);
+
+                if (selectIndex != -1)
+                {
+                    textBox.SelectionStart = selectIndex;
+                    textBox.SelectionLength = searchWord.Length;
+                    textBox.Focus();
+                }
+
+
+            index = selectIndex + searchWord.Length;
+            }
+        }
+
     }
-}
+
