@@ -137,7 +137,7 @@
             // changeBox
             // 
             this.changeBox.Font = new System.Drawing.Font("돋움", 24F);
-            this.changeBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.changeBox.ForeColor = System.Drawing.SystemColors.Desktop;
             this.changeBox.Location = new System.Drawing.Point(149, 156);
             this.changeBox.Name = "changeBox";
             this.changeBox.Size = new System.Drawing.Size(1087, 99);
