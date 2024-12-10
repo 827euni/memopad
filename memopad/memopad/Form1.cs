@@ -26,11 +26,13 @@ namespace memopad
         {
             InitializeComponent();
             textBox.MouseWheel += new MouseEventHandler(textBox_MouseWheel);
+            상태표시줄ToolStripMenuItem.Checked = true;
+            자동줄바꿈ToolStripMenuItem.Checked = true;
         }
 
         private void textBox_MouseWheel(object sender, MouseEventArgs e)
         {
-            if (e.Delta > 0)
+            if (e.Delta > 0) // 한 번 휠이 돌 때마다 +120~-120까지 이동
             { 
                 zoomIn(); 
             }
@@ -136,6 +138,8 @@ namespace memopad
                 다음찾기ToolStripMenuItem.Enabled = false;
                 이전찾기ToolStripMenuItem.Enabled = false;
                 바꾸기ToolStripMenuItem.Enabled = false;
+
+                
             }
 
             else
@@ -148,9 +152,10 @@ namespace memopad
                 다음찾기ToolStripMenuItem.Enabled = true;
                 이전찾기ToolStripMenuItem.Enabled = true;
                 바꾸기ToolStripMenuItem.Enabled = true;
+                
             }
 
-           
+
         }
 
         private void 페이지설정ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -282,7 +287,8 @@ namespace memopad
         private void UpdateLineCol()
         {
             int li = textBox.GetLineFromCharIndex(textBox.SelectionStart) + 1; // 0부터 반환하므로 위치는 +1 해야함.
-            int col = textBox.SelectionStart - textBox.GetFirstCharIndexOfCurrentLine() + 1; // 현재 위치에서 가장 처음 위치를 뺀 후 1을 더해야함.현재의 위치만 알게되면 맨 앞에 탭을 넣은 경우에도 열을 인정하게 됨)
+            int col = textBox.SelectionStart - textBox.GetFirstCharIndexOfCurrentLine() + 1; // 현재 위치에서 가장 처음 위치를 뺀 후 1을 더해야함.
+                                                                                             // 현재의 위치만 알게되면 맨 앞에 탭을 넣은 경우에도 열을 인정하게 됨)
 
             toolStripStatusLabel1.Text = $"줄 {li}, 열 {col}";
         }
@@ -304,7 +310,7 @@ namespace memopad
             {
                 zoomLevel++;
                 textBox.ZoomFactor = zoomLevel * 0.1f; // 소수점 단위로 보는 것이 조금 더 명확함.
-                Console.WriteLine($"ZoomFactors: {textBox.ZoomFactor}");
+                Console.WriteLine($"ZoomFactors: +{textBox.ZoomFactor}");
                 updateZoom();
             }
         }
@@ -315,7 +321,7 @@ namespace memopad
             {
                 zoomLevel--;
                 textBox.ZoomFactor = zoomLevel * 0.1f;
-                Console.WriteLine($"ZoomFactors:v{textBox.ZoomFactor}");
+                Console.WriteLine($"ZoomFactors:-{textBox.ZoomFactor}");
                 updateZoom();
             }
         }
@@ -346,6 +352,22 @@ namespace memopad
             zoomLevel = 10;
             textBox.ZoomFactor = 1;
             updateZoom();
+        }
+
+        private void 자동줄바꿈ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (자동줄바꿈ToolStripMenuItem.Checked == false)
+            {
+                자동줄바꿈ToolStripMenuItem.Checked = true;
+                textBox.WordWrap = true;
+                textBox.ScrollBars = RichTextBoxScrollBars.Vertical;
+            }
+            else
+            {
+                자동줄바꿈ToolStripMenuItem.Checked = false;
+                textBox.WordWrap = false;
+                textBox.ScrollBars = RichTextBoxScrollBars.Both;
+            }
         }
     }
 }

@@ -111,7 +111,7 @@
             this.편집ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(4430, 150);
+            this.menuStrip1.Size = new System.Drawing.Size(1772, 49);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -274,6 +274,7 @@
             this.자동줄바꿈ToolStripMenuItem.Name = "자동줄바꿈ToolStripMenuItem";
             this.자동줄바꿈ToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.자동줄바꿈ToolStripMenuItem.Text = "자동 줄 바꿈";
+            this.자동줄바꿈ToolStripMenuItem.Click += new System.EventHandler(this.자동줄바꿈ToolStripMenuItem_Click);
             // 
             // 편집ToolStripMenuItem
             // 
