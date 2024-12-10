@@ -395,6 +395,7 @@
             this.이동ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
             this.이동ToolStripMenuItem.Size = new System.Drawing.Size(477, 54);
             this.이동ToolStripMenuItem.Text = "이동";
+            this.이동ToolStripMenuItem.Click += new System.EventHandler(this.이동ToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 

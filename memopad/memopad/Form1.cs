@@ -389,5 +389,11 @@ namespace memopad
             Form2 findForm = new Form2();
             findForm.Show(this);
         }
+
+        private void 이동ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 moveLine = new Form3();
+            moveLine.Show(this);
+        }
     }
 }
