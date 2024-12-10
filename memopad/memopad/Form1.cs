@@ -120,7 +120,7 @@ namespace memopad
 
         private void 시간날짜ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            textBox.Text = textBox.Text.Insert(textBox.SelectionStart, DateTime.Now.ToString());
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
@@ -392,7 +392,7 @@ namespace memopad
 
         private void 이동ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 moveLine = new Form3();
+            Form3 moveLine = new Form3(this);
             moveLine.Show(this);
         }
     }

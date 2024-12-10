@@ -12,9 +12,10 @@ namespace memopad
 {
     public partial class Form3 : Form
     {
-        public Form3()
+        public Form3(메모장 mainForm)
         {
             InitializeComponent();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -35,7 +36,6 @@ namespace memopad
         private void button1_Click(object sender, EventArgs e)
         {
             int lineN = Convert.ToInt32(numBox.Text);
-            
 
 
         }
