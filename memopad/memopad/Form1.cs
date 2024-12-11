@@ -470,8 +470,10 @@ namespace memopad
 
         public void searchNowWord(string searchWord)
         {
+            bool isBigSmall = findForm.getIsBigSmall();
+            RichTextBoxFinds options = isBigSmall ? RichTextBoxFinds.MatchCase : RichTextBoxFinds.None;
 
-            int selectIndex = textBox.Find(searchWord);
+            int selectIndex = textBox.Find(searchWord, options);
 
             if (selectIndex != -1)
             {
@@ -488,7 +490,9 @@ namespace memopad
         {
             try
             {
-                int selectIndex = textBox.Find(searchWord, index + 1, textBox.Text.Length, RichTextBoxFinds.None); // 인덱스와 동일한 것을 굳이 계산 할 필요 없음
+                bool isBigSmall = findForm.getIsBigSmall();
+                RichTextBoxFinds options = isBigSmall ? RichTextBoxFinds.MatchCase : RichTextBoxFinds.None;
+                int selectIndex = textBox.Find(searchWord, index + 1, textBox.Text.Length, options); // 인덱스와 동일한 것을 굳이 계산 할 필요 없음
 
                 if (selectIndex != -1)
                 {
@@ -510,8 +514,10 @@ namespace memopad
 
         public void searchPreviewWord(String searchWord)
         {
+            bool isBigSmall = findForm.getIsBigSmall();
+            RichTextBoxFinds options = isBigSmall ? RichTextBoxFinds.MatchCase : RichTextBoxFinds.None; // 대소문자 구분 여부 설정
 
-            int selectIndex = textBox.Find(searchWord, 0, index - 1, RichTextBoxFinds.Reverse); // 굳이 인덱스와 동일한 것인 지금 있는 곳까지 계산을 할 필요가 없음
+            int selectIndex = textBox.Find(searchWord, 0, index, options | RichTextBoxFinds.Reverse); // 대소문자를 구분하면서 역방향으로 검색함.
 
             if (selectIndex != -1)
             {
@@ -530,7 +536,10 @@ namespace memopad
 
         public void changeWord(String searchWord, String changeWord) 
         {
-            if (textBox.Find(searchWord) != -1)
+            bool isBigSmall = findForm.getIsBigSmall();
+            RichTextBoxFinds options = isBigSmall ? RichTextBoxFinds.MatchCase : RichTextBoxFinds.None; // 대소문자 구분 여부 설정
+
+            if (textBox.Find(searchWord, options) != -1)
             {
                 textBox.SelectedText = changeWord;
             }
@@ -543,7 +552,10 @@ namespace memopad
 
         public void changeAllWords(String searchWord, String changeWord)
         {
-            while (textBox.Find(searchWord) != -1)
+            bool isBigSmall = findForm.getIsBigSmall();
+            RichTextBoxFinds options = isBigSmall ? RichTextBoxFinds.MatchCase : RichTextBoxFinds.None; // 대소문자 구분 여부 설정
+
+            while (textBox.Find(searchWord, options) != -1)
             {
                 int selectIndex = textBox.Find(searchWord);
                 textBox.SelectionStart = selectIndex;

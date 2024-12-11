@@ -14,6 +14,7 @@ namespace memopad
     {
         메모장 memopad;
         bool isVisible = false;
+        bool isBigSmall = false;
 
         public Form2()
         {
@@ -27,9 +28,9 @@ namespace memopad
             return searchBox.Text;
         }
 
-        public String getChangeBox()
+        public bool getIsBigSmall()
         {
-            return changeBox.Text;
+            return isBigSmall;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -63,11 +64,29 @@ namespace memopad
             {
                 Text = "대/소문자 구분"
             };
-            //menuItem.Click
+            menuItem.Click += (s, ev) => // 직접 만든 메뉴 같은 경우는 이벤트 핸들러 사용해서 구현.
+            {
+                if (isBigSmall == false)
+                {
+                    isBigSmall = true;
+                    menuItem.Checked = true;
+                }
+
+                else
+                {
+                    isBigSmall = false;
+                    menuItem.Checked = false;
+                }
+                
+            };
 
             ToolStripMenuItem menuItem2 = new ToolStripMenuItem()
             {
                 Text = "줄 바꿈"
+            };
+            menuItem2.Click += (s, ev) => // 직접 만든 메뉴 같은 경우는 이벤트 핸들러 사용해서 구현.
+            {
+                
             };
 
             contextMenuStrip.Items.Add(menuItem);
@@ -76,6 +95,8 @@ namespace memopad
             Point point = button6.PointToScreen(Point.Empty);
             point.Y += button6.Height;
             contextMenuStrip.Show(point);
+
+
         }
 
         private void search_TextChanged(object sender, EventArgs e)
