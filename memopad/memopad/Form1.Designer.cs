@@ -508,9 +508,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox.ContextMenuStrip = this.contextMenuStrip1;
-            this.textBox.Location = new System.Drawing.Point(-6, 52);
+            this.textBox.Location = new System.Drawing.Point(0, 52);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(1951, 1151);
+            this.textBox.Size = new System.Drawing.Size(1949, 924);
             this.textBox.TabIndex = 1;
             this.textBox.Text = "";
             this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
@@ -525,7 +525,7 @@
             this.toolStripStatusLabel3,
             this.toolStripStatusLabel4,
             this.toolStripStatusLabel5});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1103);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1155);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.statusStrip1.Size = new System.Drawing.Size(1945, 58);
@@ -580,7 +580,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1945, 1161);
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1945, 1213);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.textBox);
