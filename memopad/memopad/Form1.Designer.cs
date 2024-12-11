@@ -510,7 +510,7 @@
             this.textBox.ContextMenuStrip = this.contextMenuStrip1;
             this.textBox.Location = new System.Drawing.Point(0, 52);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(1949, 924);
+            this.textBox.Size = new System.Drawing.Size(1949, 944);
             this.textBox.TabIndex = 1;
             this.textBox.Text = "";
             this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
