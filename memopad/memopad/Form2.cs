@@ -45,17 +45,7 @@ namespace memopad
 
             };
 
-            ToolStripMenuItem menuItem2 = new ToolStripMenuItem()
-            {
-                Text = "줄 바꿈"
-            };
-            menuItem2.Click += (s, ev) => // 직접 만든 메뉴 같은 경우는 이벤트 핸들러 사용해서 구현.
-            {
-
-            };
-
             contextMenuStrip.Items.Add(menuItem);
-            contextMenuStrip.Items.Add(menuItem2);
 
         }
 
