@@ -25,6 +25,8 @@ namespace memopad
         int zoomLevel = 10;
         int index = 0;
         Form2 findForm = new Form2();
+        private PageSettings pageSettings = new PageSettings();
+        private PrinterSettings printerSettings = new PrinterSettings();
 
         public 메모장()
         {
@@ -98,21 +100,6 @@ namespace memopad
 
         }
 
-        private void 인쇄ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PrintDialog printDialog = new PrintDialog();
-            PrintDocument printDocument = new PrintDocument();
-
-            if (printDialog.ShowDialog() == DialogResult.OK)
-            {
-                printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
-
-                printDialog.Document = printDocument;
-                printDialog.Document.Print();
-
-            }
-
-        }
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs ev)
         {
@@ -175,10 +162,6 @@ namespace memopad
 
         }
 
-        private void 페이지설정ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
@@ -574,6 +557,38 @@ namespace memopad
         {
             string searchWord = findForm.getSearchBox();
             searchPreviewWord(searchWord);
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 페이지설정ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PageSetupDialog pageSetupDialog = new PageSetupDialog();
+            pageSetupDialog.PageSettings = pageSettings;
+            pageSetupDialog.PrinterSettings = printerSettings;
+            pageSetupDialog.AllowPrinter = true;
+            pageSetupDialog.AllowOrientation= true;
+            pageSetupDialog.ShowDialog();
+        }
+
+        private void 인쇄ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrinterSettings = printerSettings;
+            printDocument.DefaultPageSettings = pageSettings;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
+                printDialog.Document = printDocument;
+                printDialog.Document.Print();
+
+            }
+
         }
     }
 
