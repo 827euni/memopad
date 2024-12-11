@@ -22,6 +22,16 @@ namespace memopad
 
         }
 
+        public String getSearchBox()
+        {
+            return searchBox.Text;
+        }
+
+        public String getChangeBox()
+        {
+            return changeBox.Text;
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
 

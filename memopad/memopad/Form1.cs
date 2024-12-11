@@ -24,6 +24,7 @@ namespace memopad
         Font printFont;
         int zoomLevel = 10;
         int index = 0;
+        Form2 findForm = new Form2();
 
         public 메모장()
         {
@@ -423,14 +424,12 @@ namespace memopad
 
         private void 찾기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 findForm = new Form2();
             findForm.Show(this);
             findForm.setFind();
         }
 
         private void 바꾸기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 findForm = new Form2();
             findForm.Show(this);
             findForm.setChange();
 
@@ -551,6 +550,18 @@ namespace memopad
                 textBox.SelectionLength = searchWord.Length;
                 textBox.SelectedText = changeWord;
             }
+        }
+
+        private void 다음찾기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string searchWord = findForm.getSearchBox();
+            searchNextWord(searchWord);
+        }
+
+        private void 이전찾기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string searchWord = findForm.getSearchBox();
+            searchPreviewWord(searchWord);
         }
     }
 
