@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace memopad
@@ -21,6 +23,8 @@ namespace memopad
         Stream st;
         Font printFont;
         int zoomLevel = 10;
+        int index = 0;
+        Form2 findForm = new Form2();
 
         public 메모장()
         {
@@ -50,8 +54,10 @@ namespace memopad
             saveFileDialog1.Filter = "텍스트(*.txt)|*.txt";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                if ((st = saveFileDialog1.OpenFile()) != null) {
-                    using (StreamWriter streamWriter = new StreamWriter(st)) {
+                if ((st = saveFileDialog1.OpenFile()) != null)
+                {
+                    using (StreamWriter streamWriter = new StreamWriter(st))
+                    {
                         streamWriter.Write(textBox.Text);
                     }
                 }
@@ -98,7 +104,7 @@ namespace memopad
             PrintDocument printDocument = new PrintDocument();
 
             if (printDialog.ShowDialog() == DialogResult.OK)
-            {             
+            {
                 printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
 
                 printDialog.Document = printDocument;
@@ -141,8 +147,12 @@ namespace memopad
                 다음찾기ToolStripMenuItem.Enabled = false;
                 이전찾기ToolStripMenuItem.Enabled = false;
                 바꾸기ToolStripMenuItem.Enabled = false;
+                잘라내기ToolStripMenuItem1.Enabled = false;
+                복사ToolStripMenuItem1.Enabled = false;
+                삭제ToolStripMenuItem1.Enabled = false;
+                bing으로서치ToolStripMenuItem.Enabled = false;
 
-                
+
             }
 
             else
@@ -155,7 +165,11 @@ namespace memopad
                 다음찾기ToolStripMenuItem.Enabled = true;
                 이전찾기ToolStripMenuItem.Enabled = true;
                 바꾸기ToolStripMenuItem.Enabled = true;
-                
+                잘라내기ToolStripMenuItem1.Enabled = true;
+                복사ToolStripMenuItem1.Enabled = true;
+                삭제ToolStripMenuItem1.Enabled = true;
+                bing으로서치ToolStripMenuItem.Enabled = true;
+
             }
 
 
@@ -167,11 +181,6 @@ namespace memopad
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void 표시및유니코드ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -195,8 +204,9 @@ namespace memopad
 
         private void 잘라내기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (textBox.SelectedText != "") {
-                textBox.Cut(); 
+            if (textBox.SelectedText != "")
+            {
+                textBox.Cut();
             }
         }
 
@@ -255,7 +265,7 @@ namespace memopad
         private void 모두선택ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             textBox.Focus();
-            textBox.SelectAll();      
+            textBox.SelectAll();
         }
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
@@ -373,7 +383,34 @@ namespace memopad
 
         private void bing으로검색ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string search = textBox.SelectedText;
 
+            if (textBox.SelectedText != null)
+            {
+                string url = "https://www.bing.com/search?q=" + Uri.EscapeDataString(search);
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+            }
+
+            else
+            {
+                bing으로검색ToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        private void bing으로서치ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string search = textBox.SelectedText;
+
+            if (textBox.SelectedText != null)
+            {
+                string url = "https://www.bing.com/search?q=" + Uri.EscapeDataString(search);
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+            }
+
+            else
+            {
+                bing으로서치ToolStripMenuItem.Enabled = false;
+            }
         }
 
         private void 글꼴ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -387,8 +424,15 @@ namespace memopad
 
         private void 찾기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 findForm = new Form2();
             findForm.Show(this);
+            findForm.setFind();
+        }
+
+        private void 바꾸기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            findForm.Show(this);
+            findForm.setChange();
+
         }
 
         private void 이동ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -416,12 +460,122 @@ namespace memopad
             {
                 MessageBox.Show("줄 번호가 전체 줄 수를 넘습니다.", "메모장 - 줄로 이동");
             }
-           
+
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
+
+        public void searchNowWord(string searchWord)
+        {
+            bool isBigSmall = findForm.getIsBigSmall();
+            RichTextBoxFinds options = isBigSmall ? RichTextBoxFinds.MatchCase : RichTextBoxFinds.None;
+
+            int selectIndex = textBox.Find(searchWord, options);
+
+            if (selectIndex != -1)
+            {
+                textBox.SelectionStart = selectIndex;
+                textBox.SelectionLength = searchWord.Length;
+                textBox.Focus();
+            }
+
+
+            index = selectIndex + searchWord.Length;
+        }
+
+        public void searchNextWord(string searchWord)
+        {
+            try
+            {
+                bool isBigSmall = findForm.getIsBigSmall();
+                RichTextBoxFinds options = isBigSmall ? RichTextBoxFinds.MatchCase : RichTextBoxFinds.None;
+                int selectIndex = textBox.Find(searchWord, index + 1, textBox.Text.Length, options); // 인덱스와 동일한 것을 굳이 계산 할 필요 없음
+
+                if (selectIndex != -1)
+                {
+                    textBox.SelectionStart = selectIndex;
+                    textBox.SelectionLength = searchWord.Length;
+                    textBox.Focus();
+                }
+
+
+
+                index = selectIndex + searchWord.Length;
+            }
+
+            catch
+            {
+                searchNowWord(searchWord);
+            }
+        }
+
+        public void searchPreviewWord(String searchWord)
+        {
+            bool isBigSmall = findForm.getIsBigSmall();
+            RichTextBoxFinds options = isBigSmall ? RichTextBoxFinds.MatchCase : RichTextBoxFinds.None; // 대소문자 구분 여부 설정
+
+            int selectIndex = textBox.Find(searchWord, 0, index, options | RichTextBoxFinds.Reverse); // 대소문자를 구분하면서 역방향으로 검색함.
+
+            if (selectIndex != -1)
+            {
+                textBox.SelectionStart = selectIndex;
+                textBox.SelectionLength = searchWord.Length;
+                textBox.Focus();
+                index = selectIndex;
+            }
+
+
+            else
+            {
+                searchNowWord(searchWord);
+            }
+        }
+
+        public void changeWord(String searchWord, String changeWord) 
+        {
+            bool isBigSmall = findForm.getIsBigSmall();
+            RichTextBoxFinds options = isBigSmall ? RichTextBoxFinds.MatchCase : RichTextBoxFinds.None; // 대소문자 구분 여부 설정
+
+            if (textBox.Find(searchWord, options) != -1)
+            {
+                textBox.SelectedText = changeWord;
+            }
+            else
+            {
+                MessageBox.Show($"'{searchWord}'을(를) 찾을 수 없습니다", "메모장");
+
+            }
+        }
+
+        public void changeAllWords(String searchWord, String changeWord)
+        {
+            bool isBigSmall = findForm.getIsBigSmall();
+            RichTextBoxFinds options = isBigSmall ? RichTextBoxFinds.MatchCase : RichTextBoxFinds.None; // 대소문자 구분 여부 설정
+
+            while (textBox.Find(searchWord, options) != -1)
+            {
+                int selectIndex = textBox.Find(searchWord);
+                textBox.SelectionStart = selectIndex;
+                textBox.SelectionLength = searchWord.Length;
+                textBox.SelectedText = changeWord;
+            }
+        }
+
+        private void 다음찾기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string searchWord = findForm.getSearchBox();
+            searchNextWord(searchWord);
+        }
+
+        private void 이전찾기ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string searchWord = findForm.getSearchBox();
+            searchPreviewWord(searchWord);
+        }
     }
+
 }
+
