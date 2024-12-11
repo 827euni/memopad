@@ -590,6 +590,22 @@ namespace memopad
             }
 
         }
+
+        private void 종료ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("저장하시겠습니까?", "종료", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                저장ToolStripMenuItem_Click(sender, e);
+                this.Close();
+            }
+            else if (result == DialogResult.No)
+            {
+                this.Close();
+            }
+        }
     }
 
 }
