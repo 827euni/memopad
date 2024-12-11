@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -15,11 +16,46 @@ namespace memopad
         메모장 memopad;
         bool isVisible = false;
         bool isBigSmall = false;
+        ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
 
         public Form2()
         {
             InitializeComponent();
             setFind();
+
+            ToolStripMenuItem menuItem = new ToolStripMenuItem()
+            {
+                Text = "대/소문자 구분"
+            };
+            menuItem.Click += (s, ev) => // 직접 만든 메뉴 같은 경우는 이벤트 핸들러 사용해서 구현.
+            {
+                if (isBigSmall == false)
+                {
+                    isBigSmall = true;
+                    menuItem.Checked = true;
+                    menuItem.Invalidate();
+                }
+
+                else
+                {
+                    isBigSmall = false;
+                    menuItem.Checked = false;
+                    menuItem.Invalidate();
+                }
+
+            };
+
+            ToolStripMenuItem menuItem2 = new ToolStripMenuItem()
+            {
+                Text = "줄 바꿈"
+            };
+            menuItem2.Click += (s, ev) => // 직접 만든 메뉴 같은 경우는 이벤트 핸들러 사용해서 구현.
+            {
+
+            };
+
+            contextMenuStrip.Items.Add(menuItem);
+            contextMenuStrip.Items.Add(menuItem2);
 
         }
 
@@ -59,38 +95,6 @@ namespace memopad
 
         private void button6_Click(object sender, EventArgs e) // 버튼을 누르면 메뉴 바로 아래에 나오게 하는 기능 구현
         {
-            ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
-            ToolStripMenuItem menuItem = new ToolStripMenuItem()
-            {
-                Text = "대/소문자 구분"
-            };
-            menuItem.Click += (s, ev) => // 직접 만든 메뉴 같은 경우는 이벤트 핸들러 사용해서 구현.
-            {
-                if (isBigSmall == false)
-                {
-                    isBigSmall = true;
-                    menuItem.Checked = true;
-                }
-
-                else
-                {
-                    isBigSmall = false;
-                    menuItem.Checked = false;
-                }
-                
-            };
-
-            ToolStripMenuItem menuItem2 = new ToolStripMenuItem()
-            {
-                Text = "줄 바꿈"
-            };
-            menuItem2.Click += (s, ev) => // 직접 만든 메뉴 같은 경우는 이벤트 핸들러 사용해서 구현.
-            {
-                
-            };
-
-            contextMenuStrip.Items.Add(menuItem);
-            contextMenuStrip.Items.Add(menuItem2);
 
             Point point = button6.PointToScreen(Point.Empty);
             point.Y += button6.Height;
