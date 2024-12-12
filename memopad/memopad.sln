@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "memopad", "memopad\memopad.csproj", "{317F7BC0-EE12-45EF-BB2F-26808E14BB7F}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "memomemo", "memomemo\memomemo\memomemo.vdproj", "{7498E519-C7B2-48AB-BD7C-5094B95A371A}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "memomemo", "memomemo\memomemo\memomemo.vdproj", "{B096E1EE-0C55-4DD1-B00E-2CE2A8BAF636}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{317F7BC0-EE12-45EF-BB2F-26808E14BB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{317F7BC0-EE12-45EF-BB2F-26808E14BB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{317F7BC0-EE12-45EF-BB2F-26808E14BB7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7498E519-C7B2-48AB-BD7C-5094B95A371A}.Debug|Any CPU.ActiveCfg = Debug
-		{7498E519-C7B2-48AB-BD7C-5094B95A371A}.Release|Any CPU.ActiveCfg = Release
+		{B096E1EE-0C55-4DD1-B00E-2CE2A8BAF636}.Debug|Any CPU.ActiveCfg = Debug
+		{B096E1EE-0C55-4DD1-B00E-2CE2A8BAF636}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
