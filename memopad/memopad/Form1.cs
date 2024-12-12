@@ -549,13 +549,15 @@ namespace memopad
 
         private void 다음찾기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string searchWord = findForm.getSearchBox();
+            findForm = new Form2();
+            string searchWord = textBox.SelectedText;
             searchNextWord(searchWord);
         }
 
         private void 이전찾기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string searchWord = findForm.getSearchBox();
+            findForm = new Form2();
+            string searchWord = textBox.SelectedText;
             searchPreviewWord(searchWord);
         }
 
