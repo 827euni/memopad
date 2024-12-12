@@ -100,7 +100,7 @@
             this.보기ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1945, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(1945, 60);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -116,7 +116,7 @@
             this.인쇄ToolStripMenuItem,
             this.종료ToolStripMenuItem});
             this.파일ToolStripMenuItem.Name = "파일ToolStripMenuItem";
-            this.파일ToolStripMenuItem.Size = new System.Drawing.Size(102, 50);
+            this.파일ToolStripMenuItem.Size = new System.Drawing.Size(102, 56);
             this.파일ToolStripMenuItem.Text = "파일";
             // 
             // 새창ToolStripMenuItem
@@ -197,7 +197,7 @@
             this.toolStripSeparator4,
             this.글꼴ToolStripMenuItem});
             this.편집ToolStripMenuItem.Name = "편집ToolStripMenuItem";
-            this.편집ToolStripMenuItem.Size = new System.Drawing.Size(102, 45);
+            this.편집ToolStripMenuItem.Size = new System.Drawing.Size(102, 56);
             this.편집ToolStripMenuItem.Text = "편집";
             // 
             // 실행취소ToolStripMenuItem
@@ -346,7 +346,7 @@
             this.상태표시줄ToolStripMenuItem,
             this.자동줄바꿈ToolStripMenuItem});
             this.보기ToolStripMenuItem.Name = "보기ToolStripMenuItem";
-            this.보기ToolStripMenuItem.Size = new System.Drawing.Size(102, 45);
+            this.보기ToolStripMenuItem.Size = new System.Drawing.Size(102, 56);
             this.보기ToolStripMenuItem.Text = "보기";
             // 
             // 확대축소ToolStripMenuItem
@@ -356,7 +356,7 @@
             this.축소ToolStripMenuItem,
             this.기본확대축소복원ToolStripMenuItem});
             this.확대축소ToolStripMenuItem.Name = "확대축소ToolStripMenuItem";
-            this.확대축소ToolStripMenuItem.Size = new System.Drawing.Size(356, 54);
+            this.확대축소ToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.확대축소ToolStripMenuItem.Text = "확대/축소";
             // 
             // 확대ToolStripMenuItem
@@ -386,14 +386,14 @@
             // 상태표시줄ToolStripMenuItem
             // 
             this.상태표시줄ToolStripMenuItem.Name = "상태표시줄ToolStripMenuItem";
-            this.상태표시줄ToolStripMenuItem.Size = new System.Drawing.Size(356, 54);
+            this.상태표시줄ToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.상태표시줄ToolStripMenuItem.Text = "상태 표시줄";
             this.상태표시줄ToolStripMenuItem.Click += new System.EventHandler(this.상태표시줄ToolStripMenuItem_Click);
             // 
             // 자동줄바꿈ToolStripMenuItem
             // 
             this.자동줄바꿈ToolStripMenuItem.Name = "자동줄바꿈ToolStripMenuItem";
-            this.자동줄바꿈ToolStripMenuItem.Size = new System.Drawing.Size(356, 54);
+            this.자동줄바꿈ToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
             this.자동줄바꿈ToolStripMenuItem.Text = "자동 줄 바꿈";
             this.자동줄바꿈ToolStripMenuItem.Click += new System.EventHandler(this.자동줄바꿈ToolStripMenuItem_Click);
             // 
@@ -560,7 +560,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1945, 1213);
             this.Controls.Add(this.menuStrip1);
