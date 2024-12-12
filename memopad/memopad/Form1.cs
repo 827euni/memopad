@@ -284,7 +284,7 @@ namespace memopad
         {
             int li = textBox.GetLineFromCharIndex(textBox.SelectionStart) + 1; // 0부터 반환하므로 위치는 +1 해야함.
             int col = textBox.SelectionStart - textBox.GetFirstCharIndexOfCurrentLine() + 1; // 현재 위치에서 가장 처음 위치를 뺀 후 1을 더해야함.
-                                                                                             // 현재의 위치만 알게되면 맨 앞에 탭을 넣은 경우에도 열을 인정하게 됨)
+                                                                                             // 현재의 위치만 알게되면 맨 앞에 탭을 넣은 경우에도 열을 인정하게 됨
 
             toolStripStatusLabel1.Text = $"줄 {li}, 열 {col}";
         }
@@ -354,13 +354,11 @@ namespace memopad
             {
                 자동줄바꿈ToolStripMenuItem.Checked = true;
                 textBox.WordWrap = true;
-                textBox.ScrollBars = RichTextBoxScrollBars.Vertical;
             }
             else
             {
                 자동줄바꿈ToolStripMenuItem.Checked = false;
                 textBox.WordWrap = false;
-                textBox.ScrollBars = RichTextBoxScrollBars.Both;
             }
         }
 
@@ -371,7 +369,7 @@ namespace memopad
             if (textBox.SelectedText != null)
             {
                 string url = "https://www.bing.com/search?q=" + Uri.EscapeDataString(search);
-                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true }); // 기본 인터넷 프로그램으로 검색을 돌림.
             }
 
             else
