@@ -500,7 +500,8 @@ namespace memopad
             bool isBigSmall = findForm.getIsBigSmall();
             RichTextBoxFinds options = isBigSmall ? RichTextBoxFinds.MatchCase : RichTextBoxFinds.None; // 대소문자 구분 여부 설정
 
-            int selectIndex = textBox.Find(searchWord, 0, index-1, options | RichTextBoxFinds.Reverse); // 대소문자를 구분하면서 역방향으로 검색함.
+            int selectIndex = textBox.Find(searchWord, 0, index - 1, options | RichTextBoxFinds.Reverse); // 대소문자를 구분하면서 역방향으로 검색함. 
+                                                                                                          // 비트 연산자이기 때문에 AND가 아니라 OR로 합할 수 있음 
 
             if (selectIndex != -1)
             {
