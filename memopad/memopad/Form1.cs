@@ -24,6 +24,7 @@ namespace memopad
         Font printFont;
         int zoomLevel = 10;
         int index = 0;
+        bool isModified;
         Form2 findForm;
         private PageSettings pageSettings = new PageSettings();
         private PrinterSettings printerSettings = new PrinterSettings();
@@ -89,12 +90,14 @@ namespace memopad
             if (string.IsNullOrEmpty(currentURL))
             {
                 다른이름으로저장ToolStripMenuItem_Click(sender, e);
+                isModified = false;
             }
             else
             {
                 using (StreamWriter streamWriter = new StreamWriter(currentURL))
                 {
                     streamWriter.Write(textBox.Text);
+                    isModified = false;
                 }
             }
 
@@ -123,6 +126,7 @@ namespace memopad
         {
 
             UpdateWord();
+            isModified = true;
 
             if (textBox.Text.Length == 0)
             {
@@ -595,15 +599,21 @@ namespace memopad
 
         private void 종료ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            DialogResult result = MessageBox.Show("저장하시겠습니까?", "종료", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            if (isModified)
             {
-                저장ToolStripMenuItem_Click(sender, e);
-                this.Close();
+                DialogResult result = MessageBox.Show("저장하시겠습니까?", "종료", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    저장ToolStripMenuItem_Click(sender, e);
+                    this.Close();
+                }
+                else if (result == DialogResult.No)
+                {
+                    this.Close();
+                }
             }
-            else if (result == DialogResult.No)
+            else
             {
                 this.Close();
             }
