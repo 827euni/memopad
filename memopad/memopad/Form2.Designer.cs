@@ -135,6 +135,7 @@
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(1214, 99);
             this.searchBox.TabIndex = 13;
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
             // changeBox
             // 

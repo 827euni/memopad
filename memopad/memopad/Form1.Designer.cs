@@ -100,7 +100,7 @@
             this.보기ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1973, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(1312, 49);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,7 +115,7 @@
             this.인쇄ToolStripMenuItem,
             this.종료ToolStripMenuItem});
             this.파일ToolStripMenuItem.Name = "파일ToolStripMenuItem";
-            this.파일ToolStripMenuItem.Size = new System.Drawing.Size(102, 45);
+            this.파일ToolStripMenuItem.Size = new System.Drawing.Size(102, 56);
             this.파일ToolStripMenuItem.Text = "파일";
             // 
             // 새창ToolStripMenuItem
@@ -196,7 +196,7 @@
             this.toolStripSeparator4,
             this.글꼴ToolStripMenuItem});
             this.편집ToolStripMenuItem.Name = "편집ToolStripMenuItem";
-            this.편집ToolStripMenuItem.Size = new System.Drawing.Size(102, 45);
+            this.편집ToolStripMenuItem.Size = new System.Drawing.Size(102, 56);
             this.편집ToolStripMenuItem.Text = "편집";
             // 
             // 실행취소ToolStripMenuItem
@@ -345,7 +345,7 @@
             this.상태표시줄ToolStripMenuItem,
             this.자동줄바꿈ToolStripMenuItem});
             this.보기ToolStripMenuItem.Name = "보기ToolStripMenuItem";
-            this.보기ToolStripMenuItem.Size = new System.Drawing.Size(102, 45);
+            this.보기ToolStripMenuItem.Size = new System.Drawing.Size(102, 56);
             this.보기ToolStripMenuItem.Text = "보기";
             // 
             // 확대축소ToolStripMenuItem
@@ -507,7 +507,7 @@
             this.textBox.ContextMenuStrip = this.contextMenuStrip1;
             this.textBox.Location = new System.Drawing.Point(-6, 52);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(1983, 938);
+            this.textBox.Size = new System.Drawing.Size(1318, 575);
             this.textBox.TabIndex = 1;
             this.textBox.Text = "";
             this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
@@ -520,10 +520,10 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1201);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 636);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.statusStrip1.Size = new System.Drawing.Size(1973, 58);
+            this.statusStrip1.Size = new System.Drawing.Size(1312, 58);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.TabStop = true;
             this.statusStrip1.Text = "Windows (CRLF)";
@@ -557,7 +557,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1973, 1259);
+            this.ClientSize = new System.Drawing.Size(1312, 694);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.textBox);

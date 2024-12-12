@@ -178,5 +178,10 @@ namespace memopad
         {
 
         }
+
+        private void searchBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
