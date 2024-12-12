@@ -27,7 +27,7 @@ namespace memopad
             {
                 Text = "대/소문자 구분"
             };
-            menuItem.Click += (s, ev) => // 직접 만든 메뉴 같은 경우는 이벤트 핸들러 사용해서 구현.
+            menuItem.Click += (s, ev) => // 직접 만든 메뉴 같은 경우는 이벤트 핸들러 사용해서 구현해야함.
             {
                 if (isBigSmall == false)
                 {
@@ -172,6 +172,11 @@ namespace memopad
             string changeWord = changeBox.Text;
 
             mainForm.changeAllWords(searchWord,changeWord);
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

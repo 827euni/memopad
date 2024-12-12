@@ -24,7 +24,7 @@ namespace memopad
         Font printFont;
         int zoomLevel = 10;
         int index = 0;
-        Form2 findForm = new Form2();
+        Form2 findForm;
         private PageSettings pageSettings = new PageSettings();
         private PrinterSettings printerSettings = new PrinterSettings();
 
@@ -405,12 +405,14 @@ namespace memopad
 
         private void 찾기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            findForm = new Form2();
             findForm.Show(this);
             findForm.setFind();
         }
 
         private void 바꾸기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            findForm = new Form2();
             findForm.Show(this);
             findForm.setChange();
 
@@ -498,7 +500,7 @@ namespace memopad
             bool isBigSmall = findForm.getIsBigSmall();
             RichTextBoxFinds options = isBigSmall ? RichTextBoxFinds.MatchCase : RichTextBoxFinds.None; // 대소문자 구분 여부 설정
 
-            int selectIndex = textBox.Find(searchWord, 0, index, options | RichTextBoxFinds.Reverse); // 대소문자를 구분하면서 역방향으로 검색함.
+            int selectIndex = textBox.Find(searchWord, 0, index-1, options | RichTextBoxFinds.Reverse); // 대소문자를 구분하면서 역방향으로 검색함.
 
             if (selectIndex != -1)
             {
