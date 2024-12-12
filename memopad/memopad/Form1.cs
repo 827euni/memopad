@@ -166,12 +166,6 @@ namespace memopad
 
         }
 
-
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void 메모장_Load(object sender, EventArgs e)
         {
             this.모두선택ToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.A;
@@ -253,21 +247,6 @@ namespace memopad
         {
             textBox.Focus();
             textBox.SelectAll();
-        }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripStatusLabel1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
 
         private void 상태표시줄ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -428,11 +407,6 @@ namespace memopad
             moveLine.Show(this);
         }
 
-        private void 창닫기ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public void lineCursor(int lineN)
         {
             if (lineN > 0 && lineN <= textBox.Lines.Length)
@@ -447,11 +421,6 @@ namespace memopad
             {
                 MessageBox.Show("줄 번호가 전체 줄 수를 넘습니다.", "메모장 - 줄로 이동");
             }
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
         }
 
@@ -514,7 +483,6 @@ namespace memopad
                 index = selectIndex;
             }
 
-
             else
             {
                 searchNowWord(searchWord);
@@ -533,7 +501,6 @@ namespace memopad
             else
             {
                 MessageBox.Show($"'{searchWord}'을(를) 찾을 수 없습니다", "메모장");
-
             }
         }
 
@@ -565,10 +532,6 @@ namespace memopad
             searchPreviewWord(searchWord);
         }
 
-        private void printPreviewDialog1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void 페이지설정ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -594,7 +557,6 @@ namespace memopad
                 printDialog.Document.Print();
 
             }
-
         }
 
         private void 종료ToolStripMenuItem_Click(object sender, EventArgs e)
