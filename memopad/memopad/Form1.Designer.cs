@@ -100,7 +100,7 @@
             this.보기ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1312, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(1312, 60);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -507,7 +507,7 @@
             this.textBox.ContextMenuStrip = this.contextMenuStrip1;
             this.textBox.Location = new System.Drawing.Point(-6, 52);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(1318, 575);
+            this.textBox.Size = new System.Drawing.Size(1318, 593);
             this.textBox.TabIndex = 1;
             this.textBox.Text = "";
             this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
@@ -554,9 +554,8 @@
             // 
             // 메모장
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 30F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1312, 694);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
