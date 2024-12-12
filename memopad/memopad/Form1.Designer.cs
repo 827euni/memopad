@@ -100,7 +100,7 @@
             this.보기ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1945, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(1973, 49);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -509,7 +509,7 @@
             this.textBox.ContextMenuStrip = this.contextMenuStrip1;
             this.textBox.Location = new System.Drawing.Point(-6, 52);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(1955, 944);
+            this.textBox.Size = new System.Drawing.Size(1983, 938);
             this.textBox.TabIndex = 1;
             this.textBox.Text = "";
             this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
@@ -522,10 +522,10 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1155);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1201);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.statusStrip1.Size = new System.Drawing.Size(1945, 58);
+            this.statusStrip1.Size = new System.Drawing.Size(1973, 58);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.TabStop = true;
             this.statusStrip1.Text = "Windows (CRLF)";
@@ -561,7 +561,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1945, 1213);
+            this.ClientSize = new System.Drawing.Size(1973, 1259);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.textBox);
