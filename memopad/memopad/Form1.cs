@@ -24,6 +24,7 @@ namespace memopad
         Font printFont;
         int zoomLevel = 10;
         int index = 0;
+        bool isModified;
         Form2 findForm;
         private PageSettings pageSettings = new PageSettings();
         private PrinterSettings printerSettings = new PrinterSettings();
@@ -89,12 +90,14 @@ namespace memopad
             if (string.IsNullOrEmpty(currentURL))
             {
                 다른이름으로저장ToolStripMenuItem_Click(sender, e);
+                isModified = false;
             }
             else
             {
                 using (StreamWriter streamWriter = new StreamWriter(currentURL))
                 {
                     streamWriter.Write(textBox.Text);
+                    isModified = false;
                 }
             }
 
@@ -123,6 +126,7 @@ namespace memopad
         {
 
             UpdateWord();
+            isModified = true;
 
             if (textBox.Text.Length == 0)
             {
@@ -159,12 +163,6 @@ namespace memopad
 
             }
 
-
-        }
-
-
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
 
         }
 
@@ -249,21 +247,6 @@ namespace memopad
         {
             textBox.Focus();
             textBox.SelectAll();
-        }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripStatusLabel1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
 
         private void 상태표시줄ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -424,11 +407,6 @@ namespace memopad
             moveLine.Show(this);
         }
 
-        private void 창닫기ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public void lineCursor(int lineN)
         {
             if (lineN > 0 && lineN <= textBox.Lines.Length)
@@ -443,11 +421,6 @@ namespace memopad
             {
                 MessageBox.Show("줄 번호가 전체 줄 수를 넘습니다.", "메모장 - 줄로 이동");
             }
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
         }
 
@@ -511,7 +484,6 @@ namespace memopad
                 index = selectIndex;
             }
 
-
             else
             {
                 searchNowWord(searchWord);
@@ -530,7 +502,6 @@ namespace memopad
             else
             {
                 MessageBox.Show($"'{searchWord}'을(를) 찾을 수 없습니다", "메모장");
-
             }
         }
 
@@ -550,20 +521,18 @@ namespace memopad
 
         private void 다음찾기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string searchWord = findForm.getSearchBox();
+            findForm = new Form2();
+            string searchWord = textBox.SelectedText;
             searchNextWord(searchWord);
         }
 
         private void 이전찾기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string searchWord = findForm.getSearchBox();
+            findForm = new Form2();
+            string searchWord = textBox.SelectedText;
             searchPreviewWord(searchWord);
         }
 
-        private void printPreviewDialog1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void 페이지설정ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -589,20 +558,25 @@ namespace memopad
                 printDialog.Document.Print();
 
             }
-
         }
 
         private void 종료ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            DialogResult result = MessageBox.Show("저장하시겠습니까?", "종료", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            if (isModified)
             {
-                저장ToolStripMenuItem_Click(sender, e);
-                this.Close();
+                DialogResult result = MessageBox.Show("저장하시겠습니까?", "종료", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    저장ToolStripMenuItem_Click(sender, e);
+                    this.Close();
+                }
+                else if (result == DialogResult.No)
+                {
+                    this.Close();
+                }
             }
-            else if (result == DialogResult.No)
+            else
             {
                 this.Close();
             }
