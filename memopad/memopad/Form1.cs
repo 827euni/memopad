@@ -65,6 +65,8 @@ namespace memopad
                     }
                 }
             }
+            currentURL = saveFileDialog1.FileName;
+            isModified = false;
         }
 
         private void 열기ToolStripMenuItem_Click(object sender, EventArgs e)
